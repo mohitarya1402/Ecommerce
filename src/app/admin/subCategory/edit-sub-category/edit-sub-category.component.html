@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">
+<div class="col-lg-6 border  p-4">
+    <h1 class="h3">Edit Sub Category</h1>
+    <form [formGroup]="subCategoryeditingFrom" (ngSubmit)="onClickUpdateSubCategory()">
+        <label>Category</label>
+        <select class="form-select my-3" formControlName="categoryName" aria-label="Default select example">
+            <option selected>Please select Category</option>
+            <option *ngFor="let category of categories" [value]="category.id">{{category.category}}</option>
+        </select>
+        <label>Sub Category</label>
+        <input type="text" class="form-control my-3" formControlName="subCategory">
+        <label>Status</label>
+        <select class="form-select my-3" formControlName="subCategoryStatus" aria-label="Default select example">
+            <option selected>Selet status</option>
+            <option>Active</option>
+            <option>InActive</option>
+        </select>
+        <input formControlName="timeAndDate" hidden>
+        <button class="btn btn-dark my-3">Update Sub Category</button>
+    </form>
+</div>
+</div>

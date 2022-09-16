@@ -1,0 +1,51 @@
+<h1 class="h2">Category</h1>
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-8 my-3 d-flex">
+        <div class="h2 col-lg-6 col-md-6 col-6">Total Categories {{categories.length}}</div>
+        <div class="col-lg-6 col-md-6 col-6">
+        <a routerLink="add" class="btn btn-primary float-end ">Add Category</a>
+        </div>
+    </div>
+  <!-- table section -->
+  <div class="col-lg-8">
+    
+    <table
+      class="table bg-white rounded shadow-sm table-hover text-center"
+      *ngIf="categories.length"
+    >
+      <thead>
+        <tr>
+          <th scope="col" width="50">#</th>
+          <th scope="col">Category</th>
+          <th scope="col">Status</th>
+          <th scope="col">Time</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ category.category }}</td>
+          <td>{{ category.status }}</td>
+          <td>{{ category.timeAndDate }}</td>
+          <td>
+              <a [routerLink]="[category.id,'edit']"  class="btn btn-dark mx-1 px-4 ">Edit</a>
+              <a class="btn btn-danger mx-1" (click)="deleteCategory(category.id)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div
+      class="quoteImage d-flex justify-content-center"
+      *ngIf="!categories.length"
+    >
+      <img src="./assets/image/clothQuote1.jpg" alt="" />
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+

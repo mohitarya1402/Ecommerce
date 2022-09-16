@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ecommerce-68a32": {
+      "hosting": {
+        "techlite": [
+          "ecommerce-68a32"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ecommerce-68a32"
+  }
+}

@@ -1,0 +1,71 @@
+<div class="container-fluid p-0">
+<header id="banner" class="vh-100 carousel slide" data-bs-ride="carousel" style="padding-top: 104px;">
+    <div class="container-fluid p-0 h-100 d-flex align-items-center carousel-inner">
+        <div class="text-center carousel-item active">
+            <h2 class="text-capitalize text-white">best collection</h2>
+            <h1 class="text-uppercase py-2 fw-bold text-white">new arrivals</h1>
+            <a href="#" class="btn button mt-3 text-uppercase">shop now</a>
+        </div>
+        <div class="text-center carousel-item">
+            <h2 class="text-capitalize text-white">best price & offer</h2>
+            <h1 class="text-uppercase py-2 fw-bold text-white">new season</h1>
+            <a href="#" class="btn button mt-3 text-uppercase">buy now</a>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#header" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#header" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</header>
+
+
+<!-- collection -->
+<section id="collection" class="py-5">
+    <div class="container">
+        <div class="title text-center">
+            <h2 class="position-relative d-inline-block">New Collection</h2>
+        </div>
+
+        <div class="row g-0">
+            <div class="d-flex flex-wrap justify-content-center mt-5 filter-button-group">
+                <button type="button" class="btn button m-2 text-dark active-filter-btn button" data-filter="*">All</button>
+                <button type="button" class="btn button m-2 text-dark" data-filter=".best">Best Sellers</button>
+                <button type="button" class="btn button m-2 text-dark" data-filter=".feat">Featured</button>
+                <button type="button" class="btn button m-2 text-dark" data-filter=".new">New Arrival</button>
+            </div>
+
+            <div class="collection-list mt-4 row gx-0 gy-3">
+                <div class="col-md-6 col-lg-4 col-xl-3 p-2 cardItem" *ngFor="let product of productArray">
+                    <div class="collection-img position-relative">
+                        <img [src]="product.imageURL" class="">
+                        <span class="position-absolute backGroundColor text-white d-flex align-items-center justify-content-center">sale</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="brandName mt-3 text-center">
+                        <span class="text-muted ">{{product.brandName}}</span>
+                        </div>
+                        <div class="productName">
+                            <p class="text-capitalize my-1 productNameText">{{product.productName}}</p>
+                        </div>
+                        <span class="fw-bold productPrice">₹ {{product.price}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- jquery -->
+<script src="js/jquery-3.6.0.js"></script>
+<!-- isotope js -->
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<!-- bootstrap js -->
+<script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<!-- custom js -->
+<script src="js/script.js"></script>
