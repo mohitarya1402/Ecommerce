@@ -39,8 +39,8 @@ export class productService {
     );
   }
   //get products by ID
-  getProductById(id: string):Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.baseUrl}/products/${id}.json`);
+  getProductById(id: string):Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/products/${id}.json`);
   }
   //Edit products
   editProduct(category: IProduct, id: string) {

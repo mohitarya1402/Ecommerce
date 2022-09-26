@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-lg-12 my-">
         <a routerLink="addProduct" class="btn btn-dark my-3">Add Product</a>
@@ -23,24 +24,24 @@
                     <td class="productNameTD"><p class="productName">{{product.productName}}</p></td>
                     <td class="priceTD"><span class="rupeeSign">₹ </span>{{product.price}}</td>
                     <td class="colorTD">{{product.color}}</td>
-                    <td class="productImage"><img [src]="product.imageURL" class=""></td>
+                    <!-- <td class="productImage"><img [src]="" class=""></td> -->
                     <td>hello</td>
                     <td>hello</td>
                     <td>
                         <a routerLink="/editProduct/{{product.id}}" class="btn btn-warning m-1">Edit</a>
                         <a (click)="onClickDeleteProduct(product.id!)" class="btn btn-danger m-1">Delete</a>
                     </td>
-                </tr>
+                </tr>   
             </tbody>
         </table>
     </div>
-    <div *ngIf="!formattedProductArray.length">
+    <!-- <div *ngIf="!formattedProductArray.length">
         <img src="./assets/image/quote1.jpg" alt="hello">
+    </div> -->
     </div>
-    </div>
-    <div class="col-lg-10 my-">
-        <!-- <a routerLink="add" class="btn btn-dark my-3">Add Product</a> -->
+    <!-- <div class="col-lg-10 my-"> -->
+        <!-- <a routerLink="add" class="btn btn-dark my-3">Add Product</a> --> -->
         <!-- <router-outlet></router-outlet> -->
-    </div>
+    </div> 
     
-</div>
+

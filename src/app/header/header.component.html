@@ -3,8 +3,9 @@
     <a  routerLink="" class="heading h1 text-light ms-3">TechLite</a>
     </div>
         <form class="d-flex col-lg-4">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  (input)="onInput($event)" >
             <button class="btn btn-success" type="submit">Search</button>
+        
         </form>
             <div class=" text-light col-lg-4  ">
                 <a routerLink="dashboard" class="btn btn-dark mb-3">Dashboard</a>

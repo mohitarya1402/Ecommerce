@@ -89,14 +89,19 @@
                 <div class="col-lg-6">
                     <label class="fs-5 my-1">Size</label>
                     <div formArrayName="size">
-                        <button type="button" (click)="OnClickAddSize()" class="btn btn-sm btn-dark ">Add Size</button>
+                        <button type="button" (click)="OnClickAddSize(4)" class="btn btn-sm btn-dark ">Add Size</button>
                         <div class="form-group my-1 col-lg-6" *ngFor="let size of SizeControls; let i=index">
                             <input type="text" [formControlName]="i" class="form-control my-3" />
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-
+                    <label class="fs-5 my-1">Casual Or Formal</label>
+        <select class="form-select" aria-label="Default select example" formControlName="casualFormal">
+        <option selected>Select  Type</option>
+        <option selected>Casual</option>
+        <option selected>Formal</option>
+        </select>
                     <!-- <div formArrayName="color">
             <button type="button" (click)="OnClickColor()" class="btn btn-sm btn-dark ">Add Color</button>
             <div class="form-group my-1 col-lg-6" *ngFor="let color of colorControls; let i=index">
@@ -121,4 +126,4 @@
             </div>
         </form>
     </div>
-</div>
+<!-- </div><app-edit-   product></app-edit-> -->

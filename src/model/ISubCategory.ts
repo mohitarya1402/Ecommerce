@@ -1,7 +1,7 @@
-export interface ISubcategory{
-    id: string;
-    categoryName: string;
-    subCategory: string;
-    timeAndDate: string;
-    subCategoryStatus: string;
+export interface ISubcategory {
+  id: string;
+  categoryName: string;
+  subCategory: string;
+  timeAndDate: string;
+  subCategoryStatus: string;
 }

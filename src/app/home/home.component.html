@@ -24,34 +24,60 @@
 
 <!-- collection -->
 <section id="collection" class="py-5">
-    <div class="container">
+    <div class="container-fluid">
         <div class="title text-center">
             <h2 class="position-relative d-inline-block">New Collection</h2>
         </div>
 
         <div class="row g-0">
+            <div class="row">
             <div class="d-flex flex-wrap justify-content-center mt-5 filter-button-group">
-                <button type="button" class="btn button m-2 text-dark active-filter-btn button" data-filter="*">All</button>
-                <button type="button" class="btn button m-2 text-dark" data-filter=".best">Best Sellers</button>
-                <button type="button" class="btn button m-2 text-dark" data-filter=".feat">Featured</button>
-                <button type="button" class="btn button m-2 text-dark" data-filter=".new">New Arrival</button>
+                <button type="button" class="btn button m-2 text-dark active-filter-btn button" (click)="allAndBelongsSelect($event)"   value="all">All</button>
+                <button type="button" class="btn button m-2 text-dark" (click)="allAndBelongsSelect($event)"  value="Men">Men</button>
+                <button type="button" class="btn button m-2 text-dark" (click)="allAndBelongsSelect($event)"  value="Women">Women</button>
+                <button type="button" class="btn button m-2 text-dark" (click)="allAndBelongsSelect($event)"  value="Girls"> Girls</button>
+                <button type="button" class="btn button m-2 text-dark" (click)="allAndBelongsSelect($event)"  value="Boys"> Boys</button>
+                <!-- <input type="text" class="btn btn-dark" value="All" name="" id="" (change)="onchangeeve($event)"> -->
             </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-5 border mt-5">
+                    <div class="h5 text-center my-1">Filters</div>
+                    <div class="my-2">
+                        <select class="form-select"  (change)="onCategorySelect($event)">
+                        <option>Category</option>
+                        <option *ngFor="let category of categories" [value]="category.category">{{category.category}}
+                        </option>
+                        </select>
+                    </div>
+                    <div class="my-2">
+                        <select class="form-select"  (change)="onSelectFilterProduct($event)">
+                        <option selected >Sub Category</option>
+                        <option *ngFor="let subcategory of filteredSubCategoryArray" [value]="subcategory.subCategory">
+                        {{subcategory.subCategory}}</option>
+                        </select>
+                    </div> 
+                    <div class="my-2">
+                
+                    </div>
+                </div>
 
-            <div class="collection-list mt-4 row gx-0 gy-3">
-                <div class="col-md-6 col-lg-4 col-xl-3 p-2 cardItem" *ngFor="let product of productArray">
-                    <div class="collection-img position-relative">
-                        <img [src]="product.imageURL" class="">
+            <div class="collection-list mt-4 row gx-0 gy-3 col-lg-10">
+                <div class="col-md-6 col-lg-4 col-xl-3 p-2 cardItem" *ngFor="let product of filteredArray |searchPipe:searchTerm ">
+                    <div class="collection-img position-relative col-lg-12 ">
+                        <img [src]="product.imageURL" class="card-img-top image-fluid">
                         <span class="position-absolute backGroundColor text-white d-flex align-items-center justify-content-center">sale</span>
                     </div>
                     <div class="text-center">
                         <div class="brandName mt-3 text-center">
-                        <span class="text-muted ">{{product.brandName}}</span>
+                        <span class="text-muted">{{product.brandName}}</span>
                         </div>
                         <div class="productName">
                             <p class="text-capitalize my-1 productNameText">{{product.productName}}</p>
                         </div>
                         <span class="fw-bold productPrice">₹ {{product.price}}</span>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

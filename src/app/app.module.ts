@@ -28,6 +28,8 @@ import { EditSubCategoryComponent } from './admin/subCategory/edit-sub-category/
 import { FilterSubcategoryPipe } from './admin/product/pipe/filter-subcategory.pipe';
 import { HomeComponent } from './home/home.component';
 import { ProductMainComponent } from './admin/product/product-main/product-main.component';
+import { Ng5SliderModule } from 'ng5-slider';
+import { SearchPipePipe } from './pipe/search-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { ProductMainComponent } from './admin/product/product-main/product-main.
     FilterSubcategoryPipe,
     HomeComponent,
     ProductMainComponent,
+    SearchPipePipe,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { ProductMainComponent } from './admin/product/product-main/product-main.
     provideStorage(() => getStorage()),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    Ng5SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],

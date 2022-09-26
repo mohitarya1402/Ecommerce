@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
     private subcategoryService: subCategoryService,
     private toastr:ToastrService
   ) {}
-  productsArray: IProduct[] = [];
+  productsArray: any = [];
   categoryArray: IProductCategory[] = [];
   subcategoryArray: ISubcategory[] = [];
   formattedProductArray: IProduct[] = [];
@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   getProduct() {
     this.productService.getProduct().subscribe((data) => {
       this.formattedProductArray = data;
-      console.log(data[0]);
+      // console.log(data[0]);
     });
   }
   getSubCategory() {
@@ -60,33 +60,5 @@ export class ProductComponent implements OnInit {
   })
   }
 
-  getFormattedProduct() {
-    // console.log("formadas")
-    // console.log(this.categoryArray)
-    this.categoryService.getCategory().subscribe((categories) => {
-      this.subcategoryService.getAllSubCategory().subscribe((subcategories) => {
-        this.productService.getProduct().subscribe((products) => {
-          // console.log(categories)
-          for (let category of categories) {
-            // console.log(category.id)
-            for (let subCategory of subcategories) {
-              // console.log(subCategory.subCategory)
-              for (let product of products) {
-                // console.log(product.brandName)
-                if (product.category == category.id) {
-                  this.formattedProductArray.push({
-                    ...product,
-                    category: category.category,
-                    subCatgeory: subCategory.subCategory,
-                  });
-                } else {
-                  console.log('else conditon ');
-                }
-              }
-            }
-          }
-        });
-      });
-    });
-  }
+
 }

@@ -4,6 +4,7 @@ import { map } from 'rxjs';
 import { ToastrService } from "ngx-toastr";
 import { Observable } from "rxjs";
 import { ISubcategory } from "src/model/ISubCategory";
+import { CategoryserviceService } from "./categoryservice.service";
 
 
 @Injectable({
@@ -11,13 +12,14 @@ import { ISubcategory } from "src/model/ISubCategory";
 })
 export class subCategoryService {
   subCategoryEvent = new EventEmitter<boolean>();
-  constructor(private http: HttpClient, private toastr: ToastrService) {}
+  constructor(
+    private http: HttpClient,
+  ) {}
   baseUrl = 'https://ecommerce-68a32-default-rtdb.firebaseio.com/';
 
-  getSubCategoryEvent(msg: boolean)
-  {
-    debugger
-    this.subCategoryEvent.emit(msg)
+  getSubCategoryEvent(msg: boolean) {
+    debugger;
+    this.subCategoryEvent.emit(msg);
   }
   //add sub category
   addSubCategory(subcategory: ISubcategory): Observable<{ subcategory: any }> {
@@ -57,6 +59,7 @@ export class subCategoryService {
   deleteSubCategory(id: string) {
     return this.http.delete(`${this.baseUrl}/subCategory/${id}.json`);
   }
+
 }
 
 

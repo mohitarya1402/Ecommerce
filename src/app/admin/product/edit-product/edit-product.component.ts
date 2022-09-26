@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { type } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryserviceService } from 'src/app/service/categoryservice.service';
 import { productService } from 'src/app/service/productService';
@@ -17,6 +18,8 @@ import { ISubcategory } from 'src/model/ISubCategory';
 export class EditProductComponent implements OnInit {
   id: string = '';
   productArray: IProduct[] = [];
+  
+  formattedproductArray:IProduct[] = []
   categoryArray: IProductCategory[] = [];
   subCategoryArray: ISubcategory[] = [];
   filteredSubCategory: ISubcategory[] = [];
@@ -43,10 +46,10 @@ export class EditProductComponent implements OnInit {
     price: new FormControl(''),
     materialType: new FormControl(''),
     fitType: new FormControl(''),
-    imageURL: new FormControl(''),
+    // imageURL: new FormControl(''),
     printPatternType: new FormControl(''),
     color: new FormControl(''),
-    size: new FormArray([]),
+    // size: new FormArray([]),
   });
 
     //set value in form 
@@ -65,21 +68,18 @@ export class EditProductComponent implements OnInit {
     this.uploadService
       .uploadImage(this.file, this.file.name)
       .subscribe((data) => {
-        console.log(data);
+        // console.log(data);
         this.editProductForm.patchValue({
-          imageURL: data,
+          // imageURL: data,
         });
         this.toastr.success('photo uploaded successfully');
       });
   }
+  belongs:any
   // // //get product by Id
-  // getProductById(id: string) {
-  //   this.productService.getProductById(id).subscribe((data) => {
-  //     this.productArray = data;
-  //     // this.editProductForm.setValue({
-  //     // })
-  //     // })
-  // }
+  getProductById(id: string) {
+
+  }
   //get category
   getCategory() {
     this.categoryService.getCategory().subscribe((data) => {
@@ -102,9 +102,9 @@ export class EditProductComponent implements OnInit {
     (<FormArray>(<unknown>this.editProductForm.get('size'))).push(control);
   }
   //
-  get SizeControls() {
-    return (<FormArray>this.editProductForm.get('size')).controls;
-  }
+  // get SizeControls() {
+  //   return (<FormArray>this.editProductForm.get('size')).controls;
+  // }
 
   editProduct() {}
 }

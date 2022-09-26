@@ -50,6 +50,7 @@ export class AddProductComponent implements OnInit {
     brandName: new FormControl(''),
     price: new FormControl(''),
     materialType: new FormControl(''),
+    casualFormal:new FormControl(''),
     fitType: new FormControl(''),
     imageURL: new FormControl(''),
     printPatternType: new FormControl(''),
@@ -64,9 +65,14 @@ export class AddProductComponent implements OnInit {
     return (<FormArray>(<unknown>this.addProductForm.get('color'))).controls;
   }
 
-  OnClickAddSize() {
-    const control = new FormControl(null);
+  OnClickAddSize(ind: number) {
+    let si :string[]=['S','M','L','XL']
+    for (let i = 0; i <ind; i++)
+    {
+      const control = new FormControl(si[i]);
     (<FormArray>(<unknown>this.addProductForm.get('size'))).push(control);
+      }
+
   }
   //send product details to product service
   addProductToDatabase() {
@@ -74,7 +80,7 @@ export class AddProductComponent implements OnInit {
     this.productService.addProduct(product).subscribe((data) => {
       this.toastr.success('Product Added Successfully');
       console.log(this.addProductForm.value);
-      this.router.navigate(['/product']);
+      // this.router.navigate(['/product']);
     });
   }
 
