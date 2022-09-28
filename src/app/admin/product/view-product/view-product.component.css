@@ -1,0 +1,45 @@
+.imageSection {
+  width: 29rem;
+  /* border: 1px solid black; */
+  height: 29rem;
+}
+.image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: fill;
+}
+.productName {
+  font-size: 1.8rem;
+}
+/* size */
+.sizeData {
+  font-size: 1.5rem;
+  margin: 7px;
+  padding: 3px 5px;
+  border: 1px solid rgba(89, 83, 83, 0.5);
+}
+
+label.sizeBox {
+  cursor: pointer;
+  margin: 5px;
+}
+label.sizeBox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+label.sizeBox span {
+  padding: 2px 9px;
+  border: 2px solid #707070;
+  display: inline-block;
+  color: #030303;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+label.sizeBox input:checked + span {
+  border-color: #0e0d0d;
+  background-color: #1f1a1a;
+  color: #fff;
+}

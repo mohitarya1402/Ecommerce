@@ -7,7 +7,7 @@ import { IProductCategory } from '../../model/ICategory';
   providedIn: 'root',
 })
 export class CategoryserviceService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   categoryEvent = new EventEmitter<boolean>();
   baseUrl = 'https://ecommerce-68a32-default-rtdb.firebaseio.com/';
   addProductCategory(category: any): Observable<{ name: string }> {
@@ -16,13 +16,11 @@ export class CategoryserviceService {
       category
     );
   }
-  addCategoryEvent(msg:boolean)
-  {
-    console.log("message is "+msg)
-    this.categoryEvent.emit(msg)
+  addCategoryEvent(msg: boolean) {
+    console.log('message is ' + msg);
+    this.categoryEvent.emit(msg);
   }
-  getCategory()
-  {
+  getCategory() {
     return this.http
       .get<{ [id: string]: IProductCategory }[]>(
         `${this.baseUrl}productCategory.json`
@@ -41,19 +39,19 @@ export class CategoryserviceService {
         })
       );
   }
-//get category by ID
-  getCategoryById(id:string)
-  {
+  //get category by ID
+  getCategoryById(id: string) {
     return this.http.get(`${this.baseUrl}/productCategory/${id}.json`);
   }
-  //Edit category 
-  editCategory(category: IProductCategory, id: string)
-  { 
-    return this.http.put(`${this.baseUrl}/productCategory/${id}.json`,category);
+  //Edit category
+  editCategory(category: IProductCategory, id: string) {
+    return this.http.put(
+      `${this.baseUrl}/productCategory/${id}.json`,
+      category
+    );
   }
   //delete method
-  deleteCategory(id:string)
-  {
-    return this.http.delete(`${this.baseUrl}/productCategory/${id}.json`)
+  deleteCategory(id: string) {
+    return this.http.delete(`${this.baseUrl}/productCategory/${id}.json`);
   }
 }

@@ -1,0 +1,53 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 imageSection collection-img position-relative">
+            <img [src]="products.imageURL" class="card-img-top image image-fluid">
+        </div>
+        <div class="col-lg-6 col-md-6 ">
+            <div class="text-muted h4 my-2">{{products.brandName}}</div>
+            <div class="text-dark productName my-2">{{products.productName}}</div>
+            <div class="my-3">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="productDetails my-3">
+                <div class="sizeSection">
+                    <span class="text-muted h6 me-5">Size</span>
+                    <label class="sizeBox">
+                        <input type="radio" name="size" value="S" checked>
+                        <span>S</span> </label>
+                    <label class="sizeBox">
+                        <input type="radio" name="size" value="M">
+                        <span>M</span>
+                    </label>
+                    <label class="sizeBox">
+                        <input type="radio" name="size" value="L">
+                        <span>L</span>
+                    </label>
+                    <label class="sizeBox">
+                        <input type="radio" name="size" value="XL">
+                        <span>XL</span>
+                    </label>
+                </div>
+                <div class="fabric my-3">
+                    <span class="text-muted h6 me-5">Fabric</span>
+                    <span>{{products.materialType}}</span>
+                </div>
+                <div class="color my-3">
+                    <span class="text-muted h6 me-5">Color</span>
+                    <span>{{products.color}}</span>
+                </div>
+            </div>
+            <div class="buttonSection row">
+                <div class="col-lg-6">
+                    <button class="btn btn-primary btn-lg btn-block">Add To Cart</button>
+                </div>
+                <div class="col-lg-6">
+                    <button class="btn btn-warning btn-lg btn-block">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

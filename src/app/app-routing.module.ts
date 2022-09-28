@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { holdReady } from 'jquery';
 import { AdminusersComponent } from './admin/adminDashboadr/adminusers.component';
 import { AddcategoryComponent } from './admin/category/addcategory/addcategory.component';
 import { AdmincategoryComponent } from './admin/category/admincategory/admincategory.component';
@@ -9,11 +8,13 @@ import { AddProductComponent } from './admin/product/add-product/add-product.com
 import { EditProductComponent } from './admin/product/edit-product/edit-product.component';
 import { ProductMainComponent } from './admin/product/product-main/product-main.component';
 import { ProductComponent } from './admin/product/product/product.component';
+import { ViewProductComponent } from './admin/product/view-product/view-product.component';
 import { AddSubCategoryComponent } from './admin/subCategory/add-sub-category/add-sub-category.component';
 import { EditSubCategoryComponent } from './admin/subCategory/edit-sub-category/edit-sub-category.component';
 import { SubCategoryComponent } from './admin/subCategory/sub-category/sub-category.component';
-import { HomeComponent } from './home/home.component';
+import { UserRegistrationComponent } from './authentication/registration/user-registration/user-registration.component';
 
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,10 @@ const routes: Routes = [
   },
   { path: 'dashboard/category', component: SubCategoryComponent },
   { path: 'editSubcategory/:id', component: EditSubCategoryComponent },
+  { path: 'viewProduct/:id', component: ViewProductComponent },
+  // { path: 'userProfile/:email', component: UserProfileComponent },
+  { path: 'login', component: UserRegistrationComponent },
+  // { path: 'dashboard/users', component: UserProfileComponent },
 
   // {path:''}
   // { path: '', component: HomeComponent },
@@ -64,6 +69,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

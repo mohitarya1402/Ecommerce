@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ImageUploadService } from 'src/app/service/uploadService';
-import {  Storage } from '@angular/fire/storage';
+import { Storage } from '@angular/fire/storage';
 import { IProduct } from 'src/model/IProduct';
 import { FileUpload } from 'src/model/fileMetaData';
 import { productService } from '../../../service/productService';
 import { ToastrService } from 'ngx-toastr';
 import { finalize, from, switchMap } from 'rxjs';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL, } from 'firebase/storage';
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from 'firebase/storage';
 import { Router } from '@angular/router';
 import { CategoryserviceService } from 'src/app/service/categoryservice.service';
 import { subCategoryService } from 'src/app/service/subCategoryService';
@@ -50,12 +55,13 @@ export class AddProductComponent implements OnInit {
     brandName: new FormControl(''),
     price: new FormControl(''),
     materialType: new FormControl(''),
-    casualFormal:new FormControl(''),
+    casualFormal: new FormControl(''),
     fitType: new FormControl(''),
     imageURL: new FormControl(''),
     printPatternType: new FormControl(''),
     color: new FormControl(''),
     size: new FormArray([]),
+    quantity: new FormControl(''),
   });
 
   get SizeControls() {
@@ -66,13 +72,11 @@ export class AddProductComponent implements OnInit {
   }
 
   OnClickAddSize(ind: number) {
-    let si :string[]=['S','M','L','XL']
-    for (let i = 0; i <ind; i++)
-    {
+    let si: string[] = ['S', 'M', 'L', 'XL'];
+    for (let i = 0; i < ind; i++) {
       const control = new FormControl(si[i]);
-    (<FormArray>(<unknown>this.addProductForm.get('size'))).push(control);
-      }
-
+      (<FormArray>(<unknown>this.addProductForm.get('size'))).push(control);
+    }
   }
   //send product details to product service
   addProductToDatabase() {
@@ -111,8 +115,7 @@ export class AddProductComponent implements OnInit {
     this.subcategoryService.getAllSubCategory().subscribe((data) => {
       this.filteredSubCategory = data.filter((item) => {
         return item.categoryName == selectedItem;
-  })
-  })
-
+      });
+    });
   }
 }

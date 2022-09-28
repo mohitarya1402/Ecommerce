@@ -1,16 +1,19 @@
-.heading{
-    text-decoration: none;
+.heading {
+  text-decoration: none;
 }
-.mainDropDown{
-    margin-left: 250px;
+
+ul {
+  margin-top: 100px;
 }
-ul{
-   margin-top: 100px;
+nav {
+  position: sticky;
+  z-index: 1;
 }
-nav{
-position:sticky;
-z-index: 1;
+ul li a:hover {
+  background-color: rgb(165, 165, 165);
 }
-ul li a:hover{
-background-color: rgb(165, 165, 165);
+
+nav {
+  position: sticky;
+  z-index: 1;
 }

@@ -13,4 +13,5 @@ export interface IProduct {
   color: string;
   imageURL: string;
   subCategory: string;
+  quantity: number;
 }

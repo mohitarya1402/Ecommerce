@@ -6,8 +6,8 @@ import { ISubcategory } from 'src/model/ISubCategory';
 import { CategoryserviceService } from '../service/categoryservice.service';
 import { productService } from '../service/productService';
 import { subCategoryService } from '../service/subCategoryService';
-import { LabelType, Options } from 'ng5-slider';
 import { GlobalSearchService } from '../service/searchDataPassService';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -32,13 +32,14 @@ export class HomeComponent implements OnInit {
   formedSubCategoriesArray: ISubcategory[] = [];
   value: string = '';
   // valueA!:number
-  searchText: string = '';
+  // searchText: string = '';
   @Input() keyword: string = '';
   constructor(
     private productService: productService,
     private categoryService: CategoryserviceService,
     private subcategoryService: subCategoryService,
-    private dataservice: GlobalSearchService
+    private dataservice: GlobalSearchService,
+    private router: Router
   ) {}
 
   filtersubcategory: any = '';
@@ -108,6 +109,7 @@ export class HomeComponent implements OnInit {
       console.log(this.searchTerm);
     });
   }
+
   formProductArray() {
     this.categoryService.getCategory().subscribe((categories) => {
       this.subcategoryService.getAllSubCategory().subscribe((subcategories) => {
@@ -145,5 +147,13 @@ export class HomeComponent implements OnInit {
         }
       });
     });
+  }
+  onClickNavigate(id: string) {
+    console.log('id is printing');
+    console.log(id);
+    this.router.navigate(['viewProduct', id]);
+    let url = 'viewProduct/' + id;
+    console.log('url ' + url);
+    // window.open(url, '_blank');
   }
 }

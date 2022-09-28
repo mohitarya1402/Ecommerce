@@ -1,0 +1,9 @@
+.registrationAndLogin {
+  position: absolute;
+  top: 30%;
+  /* left: 20%; /*large screen*/
+  left: 8%; /*samll screen */
+}
+.createOneText {
+  cursor: pointer;
+}

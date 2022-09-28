@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,8 +28,16 @@ import { EditSubCategoryComponent } from './admin/subCategory/edit-sub-category/
 import { FilterSubcategoryPipe } from './admin/product/pipe/filter-subcategory.pipe';
 import { HomeComponent } from './home/home.component';
 import { ProductMainComponent } from './admin/product/product-main/product-main.component';
-import { Ng5SliderModule } from 'ng5-slider';
 import { SearchPipePipe } from './pipe/search-pipe.pipe';
+import { ViewProductComponent } from './admin/product/view-product/view-product.component';
+import { UserRegistrationComponent } from './authentication/registration/user-registration/user-registration.component';
+import { UserLoginComponent } from './authentication/login/user-login/user-login.component';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { UsersComponent } from './users/users/users/users.component';
+import { UsertComponent } from './users/users/usert/usert.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
+// import { BrowserModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,9 +58,16 @@ import { SearchPipePipe } from './pipe/search-pipe.pipe';
     HomeComponent,
     ProductMainComponent,
     SearchPipePipe,
+    ViewProductComponent,
+    UserRegistrationComponent,
+    UserLoginComponent,
+    UsersComponent,
+    UsertComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -65,7 +80,6 @@ import { SearchPipePipe } from './pipe/search-pipe.pipe';
     provideStorage(() => getStorage()),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    Ng5SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],

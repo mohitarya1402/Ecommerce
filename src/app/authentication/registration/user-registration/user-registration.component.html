@@ -1,0 +1,40 @@
+<div class="container d-flex-column justify-content-center  registrationAndLogin">
+    <div class="row d-flex-column justify-content-center">
+        <div class="h1 text-center">Welcome To TechLite</div>
+    </div>
+    <div class="row">
+        <!-- <div *ngIf="error" class="alert alert-danger" role="alert">
+            A simple danger alert—check it out! {{error}}
+        </div> -->
+    </div>
+    <div class="row d-flex-column justify-content-center">
+        <div class="col-lg-5 border py-3">
+            <div class="h2 text-center mb-3">{{loginMode?'Login to techlite':'Looks you are new here'}}</div>
+            <form [formGroup]="loginSignUpForm" (ngSubmit)="onSubmit()">
+                <div class="form-group input-group ">
+                    <div class=" input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="email">
+                    <small *ngIf="" class="text-danger form-text w-100"> Please Enter Email</small>
+                </div>
+                <div class="form-group input-group ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="password" placeholder="Enter Password">
+                </div>
+                <button type="submit" class="btn btn-outline-primary btn-block">{{loginMode?'Login':'Sign Up'}}</button>
+                <p class="mb-0 mt-2">
+                    {{loginMode? 'Don`t have account?':' Already have account?'}} <a class="text-primary createOneText"
+                        (click)="onModeSwitch()">Create
+                        one</a></p>
+                <a href="#">Forgot Password</a>
+            </form>
+        </div>
+    </div>
+</div>

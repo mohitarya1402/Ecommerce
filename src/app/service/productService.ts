@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { EventEmitter, Injectable } from "@angular/core";
+import { data } from "jquery";
 import { map, Observable } from "rxjs";
 import { IProduct } from "src/model/IProduct";
 
@@ -39,15 +40,18 @@ export class productService {
     );
   }
   //get products by ID
-  getProductById(id: string):Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/products/${id}.json`);
+  getProductById(id: string) {
+    // debugger
+    // return this.http.get(`${this.baseUrl}/products/${id}.json`);
+    return this.http.get<IProduct>(`${this.baseUrl}products/${id}.json`)
+
   }
   //Edit products
   editProduct(category: IProduct, id: string) {
-    return this.http.put(`${this.baseUrl}/products/${id}.json`, category);
+    return this.http.put(`${this.baseUrl}products/${id}.json`, category);
   }
   //delete products
   deleteProduct(id: string) {
-    return this.http.delete(`${this.baseUrl}/products/${id}.json`);
+    return this.http.delete(`${this.baseUrl}products/${id}.json`);
   }
 }
