@@ -31,8 +31,7 @@
                 <button type="submit" class="btn btn-outline-primary btn-block">{{loginMode?'Login':'Sign Up'}}</button>
                 <p class="mb-0 mt-2">
                     {{loginMode? 'Don`t have account?':' Already have account?'}} <a class="text-primary createOneText"
-                        (click)="onModeSwitch()">Create
-                        one</a></p>
+                        (click)="onModeSwitch()">{{!loginMode?'Login':'Create One'}}</a></p>
                 <a href="#">Forgot Password</a>
             </form>
         </div>

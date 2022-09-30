@@ -43,3 +43,7 @@ label.sizeBox input:checked + span {
   background-color: #1f1a1a;
   color: #fff;
 }
+.requiredSizeClass {
+  color: red;
+  font-size: 1.5rem;
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ViewCartComponent } from './addToCart/view-cart/view-cart.component';
 import { AdminusersComponent } from './admin/adminDashboadr/adminusers.component';
 import { AddcategoryComponent } from './admin/category/addcategory/addcategory.component';
 import { AdmincategoryComponent } from './admin/category/admincategory/admincategory.component';
@@ -13,58 +14,53 @@ import { AddSubCategoryComponent } from './admin/subCategory/add-sub-category/ad
 import { EditSubCategoryComponent } from './admin/subCategory/edit-sub-category/edit-sub-category.component';
 import { SubCategoryComponent } from './admin/subCategory/sub-category/sub-category.component';
 import { UserRegistrationComponent } from './authentication/registration/user-registration/user-registration.component';
+import { IsAdminGuard } from './guards/is-admin.guard';
 
 import { HomeComponent } from './home/home.component';
+import { UserProfileFormComponent } from './userFolder/user-profile-form/user-profile-form.component';
+import { UserProfileViewComponent } from './userFolder/user-profile-view/user-profile-view.component';
+import { UsersComponent } from './userFolder/users/users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'dashboard', component: AdminusersComponent },
-
-  { path: 'editProduct/:id', component: EditProductComponent },
-  { path: 'dashboard/product', component: ProductComponent },
-  { path: 'dashboard/product/addProduct', component: AddProductComponent },
-  { path: 'dashboard/subCategory', component: SubCategoryComponent },
-  {
-    path: 'addSubCategory',
-    component: AddSubCategoryComponent,
-  },
-  { path: 'dashboard/category', component: SubCategoryComponent },
-  { path: 'editSubcategory/:id', component: EditSubCategoryComponent },
+  { path: 'viewCart', component: ViewCartComponent },
   { path: 'viewProduct/:id', component: ViewProductComponent },
-  // { path: 'userProfile/:email', component: UserProfileComponent },
+  { path: 'userProfile/:email', component: UserProfileFormComponent },
   { path: 'login', component: UserRegistrationComponent },
-  // { path: 'dashboard/users', component: UserProfileComponent },
-
-  // {path:''}
-  // { path: '', component: HomeComponent },
-  // {
-  //   path: 'dashboard',
-  //   component: AdminusersComponent,
-  //   children: [
-  //     { path: 'addProduct', component: AddProductComponent },
-  //     {
-  //       path: 'category',
-  //       component: AdmincategoryComponent,
-  //       children: [
-  //         { path: 'add', component: AddcategoryComponent },
-  //         { path: ':id/edit', component: EditcategoryComponent },
-  //       ],
-  //     },
-  // { path: 'addProduct', component: AddProductComponent },
-  // { path: 'editProduct', component: EditProductComponent },
-  //     {
-  //       path: 'product',
-  //       component: ProductComponent,
-  //       children: [
-  //         { path: 'addProduct', component: AddProductComponent },
-  //         { path: 'editProduct', component: EditProductComponent },
-  //       ],
-  //     },
-  //     { path: 'subCategory', component: SubCategoryComponent },
-  //     { path: 'editSubcategory/:id', component: EditSubCategoryComponent },
-  //     { path: 'addSubCategory', component: AddSubCategoryComponent },
-  //   ],
-  // },
+  { path: 'profileView', component: UserProfileViewComponent },
+  {
+    path: 'dashboard',
+    component: AdminusersComponent,
+    canActivate: [IsAdminGuard],
+    children: [
+      {
+        path: 'category',
+        component: AdmincategoryComponent,
+        children: [
+          { path: 'add', component: AddcategoryComponent },
+          { path: ':id/edit', component: EditcategoryComponent },
+        ],
+      },
+      {
+        path: 'product',
+        component: ProductMainComponent,
+        children: [
+          { path: '', component: ProductComponent },
+          { path: 'addProduct', component: AddProductComponent },
+          { path: 'editProduct/:id', component: EditProductComponent },
+        ],
+      },
+      {
+        path: 'subCategory',
+        component: SubCategoryComponent,
+        children: [
+          { path: 'addSubCategory', component: AddSubCategoryComponent },
+          { path: 'editSubcategory/:id', component: EditSubCategoryComponent },
+        ],
+      },
+      { path: 'allUsers', component: UsersComponent },
+    ],
+  },
 ];
 
 @NgModule({

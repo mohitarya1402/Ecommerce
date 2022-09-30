@@ -34,9 +34,13 @@ import { UserRegistrationComponent } from './authentication/registration/user-re
 import { UserLoginComponent } from './authentication/login/user-login/user-login.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { UsersComponent } from './users/users/users/users.component';
-import { UsertComponent } from './users/users/usert/usert.component';
-import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { UsersComponent } from './userFolder/users/users.component';
+import { UserProfileFormComponent } from './userFolder/user-profile-form/user-profile-form.component';
+import { UserProfileViewComponent } from './userFolder/user-profile-view/user-profile-view.component';
+import { ViewCartComponent } from './addToCart/view-cart/view-cart.component';
+import { IsAdminGuard } from './guards/is-admin.guard';
+import { CheckoutComponent } from './checkout/checkout/checkout.component';
+
 // import { BrowserModule } from '@angular/common';
 
 @NgModule({
@@ -62,8 +66,10 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
     UserRegistrationComponent,
     UserLoginComponent,
     UsersComponent,
-    UsertComponent,
-    UserProfileComponent,
+    UserProfileFormComponent,
+    UserProfileViewComponent,
+    ViewCartComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,7 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [IsAdminGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,29 +6,27 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
             (input)="onInput($event)">
         <button class="btn btn-success" type="submit">Search</button>
-
     </form>
     <div class=" text-light col-lg-4 col-md-4 col-xl-4 d-flex ">
-        <a routerLink="dashboard" class="btn btn-dark   mx-2">Dashboard</a>
-        <span *ngIf="!isUserLogedIn" routerLink="login" class="btn btn-dark">login</span>
-        <!-- <a routerLink="login" class="btn btn-dark   mx-2">login</a> -->
-        <span class="mainDropDown dropdown float-end " *ngIf="isUserLogedIn">
+        <span *ngIf="!isUserLogedIn" routerLink="login" class="btn btn-dark">login/registration</span>
+        <button type="button" class="btn position-relative" routerLink="viewCart" *ngIf="isUserLogedIn">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge bg-dark">{{itemAvialable}}</span>
+        </button>
+        <span class="mainDropDown dropdown float-end  ms-5" *ngIf="isUserLogedIn">
             <i class="fa-solid fa-user dropdown-toggle userLogo ms-5 " type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 30px;">
             </i>
-            <!-- <div class="dropdown-toggle userLogo ms-5 " data-bs-toggle="dropdown" aria-expanded="false"
-                id="dropdownMenuButton1" ><span>Hello, </span>{{userName}} </div> -->
-
             <ul class="dropdown-menu dropdownMenu" aria-labelledby="dropdownMenuButton1">
-                <li *ngIf="isUserLogedIn"><span class="dropdown-item "><span>Hello, </span>{{userName}}</span></li>
-                <li><a class="dropdown-item " href="#">Profile</a></li>
+                <li *ngIf="isUserLogedIn"><span class="dropdown-item "><span>Hello, </span>{{name}}</span></li>
+                <li><a class="dropdown-item " routerLink="profileView">Profile</a></li>
                 <li><a class="dropdown-item " href="#">Setting</a></li>
                 <li><a class="dropdown-item " (click)="logOut()">Log out</a></li>
-                <li><a class="dropdown-item" routerLink="dashboard" href="#">Dashboard</a></li>
+                <li><a class="dropdown-item" routerLink="dashboard" *ngIf="isUserAdmin">Dashboard</a></li>
             </ul>
         </span>
     </div>
-
 </nav>
 
 <!-- <app-home></app-home> -->
+<!-- <div>{{user.length}}</div> -->
