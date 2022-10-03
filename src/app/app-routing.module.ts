@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckOutComponent } from './addToCart/check-out/check-out.component';
 import { ViewCartComponent } from './addToCart/view-cart/view-cart.component';
 import { AdminusersComponent } from './admin/adminDashboadr/adminusers.component';
 import { AddcategoryComponent } from './admin/category/addcategory/addcategory.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'userProfile/:email', component: UserProfileFormComponent },
   { path: 'login', component: UserRegistrationComponent },
   { path: 'profileView', component: UserProfileViewComponent },
+  { path: 'checkOut', component: CheckOutComponent },
   {
     path: 'dashboard',
     component: AdminusersComponent,

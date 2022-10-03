@@ -39,8 +39,11 @@ import { UserProfileFormComponent } from './userFolder/user-profile-form/user-pr
 import { UserProfileViewComponent } from './userFolder/user-profile-view/user-profile-view.component';
 import { ViewCartComponent } from './addToCart/view-cart/view-cart.component';
 import { IsAdminGuard } from './guards/is-admin.guard';
-import { CheckoutComponent } from './checkout/checkout/checkout.component';
-
+import { CheckOutComponent } from './addToCart/check-out/check-out.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 // import { BrowserModule } from '@angular/common';
 
 @NgModule({
@@ -69,16 +72,20 @@ import { CheckoutComponent } from './checkout/checkout/checkout.component';
     UserProfileFormComponent,
     UserProfileViewComponent,
     ViewCartComponent,
-    CheckoutComponent,
+    CheckOutComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
+    MatButtonModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
@@ -87,6 +94,8 @@ import { CheckoutComponent } from './checkout/checkout/checkout.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
   ],
+  exports: [MatStepperModule, MatFormFieldModule, MatInputModule],
+
   providers: [IsAdminGuard],
   bootstrap: [AppComponent],
 })

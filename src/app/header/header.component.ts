@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   isUserAdmin: boolean = false;
   user: IUserProfile[] = [];
   name: string = '';
+  filterCartProducts: ICart[] = [];
   constructor(
     private dataSearch: GlobalSearchService,
     private authService: AuthserviceService,
@@ -92,6 +93,24 @@ export class HeaderComponent implements OnInit, OnChanges {
       console.log(res);
       const user = JSON.stringify(res);
       this.users = JSON.parse(user);
+    });
+  }
+
+  getFilterkartProduct() {
+    // debugger;
+    this.userId = this.authService.userDetails?.email ?? '';
+    this.addToCartSer.getThecartproduct().subscribe((data) => {
+      const val = JSON.stringify(data);
+      this.cartProduct = JSON.parse(val);
+      debugger;
+      for (let it of this.cartProduct) {
+        let tempId = it.userId;
+        if (tempId === this.userId) {
+          this.filterCartProducts.push(it);
+        }
+      }
+      this.addToCartSer.getcartQuantity(this.filterCartProducts.length);
+      // return this.filterCartProducts;
     });
   }
 }

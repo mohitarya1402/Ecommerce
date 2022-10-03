@@ -24,20 +24,20 @@ export class IsAdminService {
     private isUseradminser: GlobalSearchService
   ) {}
 
-  // getUserDetails() {
-  //   this.userId = this.getlocalService.userDetails?.email || '';
-  //   this.userprofileser.getprofileUser().subscribe((data) => {
-  //     this.user = data;
-  //     this.filterUser = this.user.filter((user) => {
-  //       return this.userId === user.userId;
-  //     });
-  //     console.log('guard run');
-  //     this.isuseradmin = this.filterUser[0].isUserAdmin ?? false;
-  //     this.name = this.filterUser[0].userName;
-  //     // this.isUseradminser.userNameandIsAdminDetails.next({
-  //     //   name: this.name,
-  //     //   _isUseradminser: this.isuseradmin,
-  //     // });
-  //   });
-  // }
+  getUserDetails() {
+    this.userId = this.getlocalService.userDetails?.email || '';
+    this.userprofileser.getprofileUser().subscribe((data) => {
+      this.user = data;
+      this.filterUser = this.user.filter((user) => {
+        return this.userId === user.userId;
+      });
+      console.log('guard run');
+      this.isuseradmin = this.filterUser[0].isUserAdmin ?? false;
+      this.name = this.filterUser[0].userName;
+      // this.isUseradminser.userNameandIsAdminDetails.next({
+      //   name: this.name,
+      //   _isUseradminser: this.isuseradmin,
+      // });
+    });
+  }
 }
